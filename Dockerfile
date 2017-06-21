@@ -6,7 +6,8 @@ LABEL maintainer "Florian Kinder <florian.kinder@fankserver.com>"
 ENV DEBIAN_FRONTEND noninteractive
 
 # Installing Mongo Connector which will connect MongoDB and Elasticsearch
-RUN pip install mongo-connector==2.5.1
+RUN pip install 'mongo-connector[elastic5]' && \
+	pip install 'elastic2-doc-manager[elastic5]'
 
 COPY entrypoint.sh /entrypoint.sh
 COPY mongo /usr/bin/
